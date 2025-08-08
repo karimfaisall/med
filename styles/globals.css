@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --font-size: 14px;
+  
+  /* Slack-inspired Color System */
+  --background: #ffffff;
+  --background-secondary: #f8f9fa;
+  --background-tertiary: #f1f2f4;
+  
+  --foreground: #1d1c1d;
+  --foreground-secondary: #616061;
+  --foreground-tertiary: #868686;
+  
+  /* Brand Colors */
+  --primary: #1264a3;
+  --primary-hover: #0f4c75;
+  --primary-foreground: #ffffff;
+  
+  /* Slack Blue Accent */
+  --accent-blue: #1264a3;
+  --accent-blue-light: #e3f2fd;
+  --accent-blue-hover: #0f4c75;
+  
+  /* Status Colors */
+  --success: #2eb67d;
+  --success-light: #e8f5e8;
+  --warning: #ecb22e;
+  --warning-light: #fdf4e3;
+  --error: #e01e5a;
+  --error-light: #fef2f2;
+  
+  /* UI Elements */
+  --card: #ffffff;
+  --card-foreground: #1d1c1d;
+  --card-hover: #f8f9fa;
+  
+  --border: #e1e5e9;
+  --border-light: #f1f2f4;
+  --border-hover: #d1d5db;
+  
+  --input: #ffffff;
+  --input-background: #f8f9fa;
+  --input-border: #d1d5db;
+  --input-focus: var(--accent-blue);
+  
+  /* Sidebar */
+  --sidebar: #f8f9fa;
+  --sidebar-foreground: #1d1c1d;
+  --sidebar-primary: var(--accent-blue);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e3f2fd;
+  --sidebar-accent-foreground: var(--accent-blue);
+  --sidebar-border: #e1e5e9;
+  --sidebar-hover: #f1f2f4;
+  
+  /* Chat Elements */
+  --chat-bubble-own: var(--accent-blue);
+  --chat-bubble-own-text: #ffffff;
+  --chat-bubble-other: #f1f2f4;
+  --chat-bubble-other-text: #1d1c1d;
+  --chat-input-background: #ffffff;
+  --chat-input-border: #d1d5db;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  
+  /* Spacing */
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  
+  /* Layout */
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 64px;
+  --right-panel-width: 320px;
+  --header-height: 44px;
+  
+  /* Online Status */
+  --status-online: #2eb67d;
+  --status-away: #ecb22e;
+  --status-offline: #868686;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
+  
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-tertiary: var(--foreground-tertiary);
+  
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-blue-light: var(--accent-blue-light);
+  --color-accent-blue-hover: var(--accent-blue-hover);
+  
+  --color-success: var(--success);
+  --color-success-light: var(--success-light);
+  --color-warning: var(--warning);
+  --color-warning-light: var(--warning-light);
+  --color-error: var(--error);
+  --color-error-light: var(--error-light);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-hover: var(--card-hover);
+  
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-border-hover: var(--border-hover);
+  
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-input-border: var(--input-border);
+  --color-input-focus: var(--input-focus);
+  
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-hover: var(--sidebar-hover);
+  
+  --color-chat-bubble-own: var(--chat-bubble-own);
+  --color-chat-bubble-own-text: var(--chat-bubble-own-text);
+  --color-chat-bubble-other: var(--chat-bubble-other);
+  --color-chat-bubble-other-text: var(--chat-bubble-other-text);
+  --color-chat-input-background: var(--chat-input-background);
+  --color-chat-input-border: var(--chat-input-border);
+  
+  --color-status-online: var(--status-online);
+  --color-status-away: var(--status-away);
+  --color-status-offline: var(--status-offline);
+  
+  --radius-sm: var(--radius-sm);
+  --radius: var(--radius);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    line-height: 1.5;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+  
+  h4 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+  
+  button {
+    font-weight: 500;
+  }
+}
+
+@layer utilities {
+  /* Layout utilities */
+  .slack-layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr var(--right-panel-width);
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .slack-layout.sidebar-collapsed {
+    grid-template-columns: var(--sidebar-width-collapsed) 1fr var(--right-panel-width);
+  }
+  
+  .slack-layout.mobile {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+  
+  .slack-layout.mobile.sidebar-open {
+    grid-template-columns: var(--sidebar-width) 1fr;
+  }
+  
+  /* Sidebar utilities */
+  .sidebar-item {
+    @apply flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors duration-150;
+  }
+  
+  .sidebar-item:hover {
+    @apply bg-sidebar-hover;
+  }
+  
+  .sidebar-item.active {
+    @apply bg-sidebar-accent text-sidebar-accent-foreground;
+  }
+  
+  .sidebar-section {
+    @apply px-3 py-2 text-xs font-semibold text-foreground-secondary uppercase tracking-wide;
+  }
+  
+  /* Chat utilities */
+  .chat-message {
+    @apply px-4 py-2 hover:bg-background-secondary transition-colors duration-150;
+  }
+  
+  .chat-bubble {
+    @apply px-3 py-2 rounded-lg max-w-md;
+  }
+  
+  .chat-bubble.own {
+    @apply bg-chat-bubble-own text-chat-bubble-own-text ml-auto;
+  }
+  
+  .chat-bubble.other {
+    @apply bg-chat-bubble-other text-chat-bubble-other-text;
+  }
+  
+  /* Status indicators */
+  .status-indicator {
+    @apply w-2 h-2 rounded-full border border-white;
+  }
+  
+  .status-indicator.online {
+    @apply bg-status-online;
+  }
+  
+  .status-indicator.away {
+    @apply bg-status-away;
+  }
+  
+  .status-indicator.offline {
+    @apply bg-status-offline;
+  }
+  
+  /* Mobile utilities */
+  .mobile-hidden {
+    @apply hidden md:block;
+  }
+  
+  .mobile-only {
+    @apply block md:hidden;
+  }
+  
+  /* Touch targets */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Safe areas */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  /* Scrolling */
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+  
+  /* Line clamping */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 280px;
+    --font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  .slack-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px !important; /* Prevent zoom on iOS */
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --sidebar-width: 100vw;
+  }
+}
+
+/* Focus styles for accessibility */
+@media (prefers-reduced-motion: no-preference) {
+  .transition-smooth {
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border: #000000;
+    --foreground-secondary: #000000;
+  }
+}
