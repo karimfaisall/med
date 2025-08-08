@@ -2,7 +2,6 @@
 
 A modern, Slack-inspired healthcare communication platform designed for German medical professionals, featuring KIM encryption, AI assistance, and GDPR compliance.
 
-##  Features
 
 ###  Slack-Style 3-Column Layout
 - **Left Sidebar**: Navigation with Teams, Direct Messages, and user presence indicators
