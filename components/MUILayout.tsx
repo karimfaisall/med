@@ -96,13 +96,13 @@ export function MUILayout({
     onNavigate(newValue);
   };
 
-  // Calculate main content width based on panels
+  // Calculate the main content width based on panels
   const getMainContentStyles = () => {
     if (isMobile) {
       return {
         width: '100%',
         marginLeft: 0,
-        paddingBottom: '56px', // Space for bottom navigation
+        paddingBottom: '56px',
       };
     }
 
@@ -181,7 +181,7 @@ export function MUILayout({
             open={mobileDrawerOpen}
             onClose={handleDrawerToggle}
             ModalProps={{
-              keepMounted: true, // Better mobile performance
+              keepMounted: true,
             }}
             sx={{
               '& .MuiDrawer-paper': {
@@ -227,7 +227,7 @@ export function MUILayout({
           backgroundColor: 'background.default',
           overflow: 'hidden',
           ...(isMobile && {
-            marginTop: '64px', // Space for mobile app bar
+            marginTop: '64px',
           }),
         }}
       >
@@ -298,7 +298,7 @@ export function MUILayout({
               onClick={handleRightPanelToggle}
               sx={{
                 position: 'fixed',
-                bottom: 72, // Above bottom navigation
+                bottom: 72,
                 right: 16,
                 zIndex: theme.zIndex.speedDial,
               }}
@@ -308,7 +308,6 @@ export function MUILayout({
           )}
         </>
       )}
-
       {/* Mobile Bottom Navigation */}
       {isMobile && (
         <BottomNavigation

@@ -39,7 +39,6 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate login delay
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     setIsLoading(false);

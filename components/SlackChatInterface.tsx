@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import { 
-  Send, 
-  Smile, 
-  Paperclip, 
-  Plus, 
+import {
+  Send,
+  Smile,
+  Paperclip,
+  Plus,
   MoreVertical,
   Reply,
   Star,
@@ -60,9 +60,9 @@ const mockUsers: { [key: string]: User } = {
 
 const commonEmojis = ['👍', '❤️', '😊', '👏', '🎉', '✅', '⚠️', '❓'];
 
-export function SlackChatInterface({ 
-  messages, 
-  currentUser, 
+export function SlackChatInterface({
+  messages,
+  currentUser,
   onSendMessage,
   onReactToMessage,
   onReplyToMessage,
@@ -123,7 +123,7 @@ export function SlackChatInterface({
   const getTimeString = (date: Date) => {
     const now = new Date();
     const diffInHours = (now.getTime() - date.getTime()) / (1000 * 60 * 60);
-    
+
     if (diffInHours < 24) {
       return date.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
     } else {
@@ -140,7 +140,6 @@ export function SlackChatInterface({
   };
 
   const getFileIcon = (type: string) => {
-    // Return appropriate file icon based on type
     return <Paperclip className="w-4 h-4" />;
   };
 
@@ -157,18 +156,18 @@ export function SlackChatInterface({
               role: 'doctor' as const,
               status: 'offline' as const
             };
-            
+
             const prevMessage = index > 0 ? messages[index - 1] : null;
-            const showAvatar = !prevMessage || 
-              prevMessage.senderId !== message.senderId || 
+            const showAvatar = !prevMessage ||
+              prevMessage.senderId !== message.senderId ||
               (message.timestamp.getTime() - prevMessage.timestamp.getTime()) > 300000; // 5 minutes
-            
+
             const isOwn = isOwnMessage(message);
             const isEditing = editingMessage === message.id;
 
             return (
-              <div 
-                key={message.id} 
+              <div
+                key={message.id}
                 className={`chat-message group relative ${showAvatar ? 'mt-4' : 'mt-1'}`}
                 onMouseEnter={() => setSelectedMessage(message.id)}
                 onMouseLeave={() => setSelectedMessage(null)}
@@ -236,7 +235,7 @@ export function SlackChatInterface({
                         <p className="text-sm text-foreground leading-relaxed whitespace-pre-wrap">
                           {message.content}
                         </p>
-                        
+
                         {message.isEdited && (
                           <span className="text-xs text-foreground-tertiary">(bearbeitet)</span>
                         )}
@@ -358,7 +357,7 @@ export function SlackChatInterface({
               </div>
             );
           })}
-          
+
           {/* Typing indicator */}
           {isTyping && (
             <div className="chat-message">
@@ -380,7 +379,7 @@ export function SlackChatInterface({
               </div>
             </div>
           )}
-          
+
           <div ref={messagesEndRef} />
         </div>
       </ScrollArea>
@@ -397,7 +396,7 @@ export function SlackChatInterface({
             >
               <Plus className="w-5 h-5" />
             </Button>
-            
+
             <div className="flex-1 relative">
               <Input
                 ref={inputRef}
@@ -425,7 +424,7 @@ export function SlackChatInterface({
                 </Button>
               </div>
             </div>
-            
+
             <Button
               type="submit"
               disabled={!messageInput.trim()}
@@ -434,7 +433,7 @@ export function SlackChatInterface({
               <Send className="w-4 h-4" />
             </Button>
           </div>
-          
+
           <div className="flex items-center justify-between text-xs text-foreground-secondary">
             <span>🔒 KIM-verschlüsselt</span>
             <span>Strg + Enter zum Senden</span>

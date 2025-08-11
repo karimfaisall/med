@@ -18,7 +18,6 @@ import {
   Card,
   CardContent,
   IconButton,
-  Tooltip,
   LinearProgress,
   AppBar,
   Toolbar,
@@ -28,7 +27,6 @@ import {
   SmartToy,
   Person,
   AttachFile,
-  PushPin,
   Send,
   ThumbUp,
   ThumbDown,
@@ -304,9 +302,9 @@ export function RightContextPanel({
                       </Typography>
                     </Box>
                   </Box>
-                  
+
                   <Divider sx={{ my: 2 }} />
-                  
+
                   <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                       <Typography variant="body2" color="text.secondary">
@@ -326,7 +324,7 @@ export function RightContextPanel({
                       />
                     </Box>
                   </Box>
-                  
+
                   <Button
                     fullWidth
                     variant="outlined"
@@ -421,7 +419,7 @@ export function RightContextPanel({
                   icon={<Schedule />}
                 />
               </Box>
-              
+
               <Paper sx={{ p: 2, bgcolor: 'warning.light', color: 'warning.dark' }} variant="outlined">
                 <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
                   <Warning />

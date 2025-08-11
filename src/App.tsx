@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider, CssBaseline, Box, Typography } from '@mui/material';
 import { medTheme } from './theme';
 import { MUILayout } from '../components/MUILayout';

@@ -1,5 +1,5 @@
 import { Inbox, MessageSquarePlus, Bell, Settings } from 'lucide-react';
-import { Screen } from '../src/App';
+import { Screen } from '../types';
 
 interface MobileBottomNavProps {
   currentScreen: Screen;
@@ -13,7 +13,7 @@ export function MobileBottomNav({ currentScreen, onNavigate }: MobileBottomNavPr
       icon: Inbox,
       label: 'Posteingang',
       tooltip: 'Inbox',
-      badge: 5 // Unread count
+      badge: 5
     },
     {
       id: 'compose' as Screen,

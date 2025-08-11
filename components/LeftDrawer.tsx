@@ -46,7 +46,7 @@ import {
   Close,
   PersonAdd,
   Tag,
-  Message,
+
   Circle,
 } from '@mui/icons-material';
 import { Screen, User, Team, UserStatus } from '../types';

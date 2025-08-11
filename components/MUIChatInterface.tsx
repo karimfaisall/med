@@ -14,15 +14,6 @@ import {
   Button,
   Card,
   CardContent,
-  CardActions,
-  Tooltip,
-  Badge,
-  Fab,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Zoom,
   Fade,
   useTheme,
   alpha,
@@ -40,11 +31,6 @@ import {
   Share,
   Warning,
   GetApp,
-  ThumbUp,
-  Favorite,
-  Celebration,
-  CheckCircle,
-  HelpOutline,
 } from '@mui/icons-material';
 import { Message, User } from '../types';
 
@@ -110,11 +96,11 @@ export function MUIChatInterface({
   const [actionsAnchor, setActionsAnchor] = useState<null | HTMLElement>(null);
   const [selectedMessageId, setSelectedMessageId] = useState<string>('');
   const [isTyping, setIsTyping] = useState(false);
-  
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-scroll to bottom when new messages arrive
+  // Auto-scroll to the bottom when new messages arrive
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
@@ -165,7 +151,7 @@ export function MUIChatInterface({
   const getTimeString = (date: Date) => {
     const now = new Date();
     const diffInHours = (now.getTime() - date.getTime()) / (1000 * 60 * 60);
-    
+
     if (diffInHours < 24) {
       return date.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
     } else {
@@ -208,12 +194,12 @@ export function MUIChatInterface({
               role: 'doctor' as const,
               status: 'offline' as const,
             };
-            
+
             const prevMessage = index > 0 ? messages[index - 1] : null;
-            const showAvatar = !prevMessage || 
-              prevMessage.senderId !== message.senderId || 
-              (message.timestamp.getTime() - prevMessage.timestamp.getTime()) > 300000; // 5 minutes
-            
+            const showAvatar = !prevMessage ||
+              prevMessage.senderId !== message.senderId ||
+              (message.timestamp.getTime() - prevMessage.timestamp.getTime()) > 300000;
+
             const isOwn = isOwnMessage(message);
             const isEditing = editingMessage === message.id;
 
@@ -326,7 +312,7 @@ export function MUIChatInterface({
                         >
                           {message.content}
                         </Typography>
-                        
+
                         {message.isEdited && (
                           <Typography variant="caption" color="text.disabled">
                             (bearbeitet)
@@ -466,7 +452,7 @@ export function MUIChatInterface({
               </Typography>
             </Stack>
           )}
-          
+
           <div ref={messagesEndRef} />
         </Stack>
       </Box>
@@ -485,7 +471,7 @@ export function MUIChatInterface({
             <IconButton color="primary" sx={{ mb: 0.5 }}>
               <AttachFile />
             </IconButton>
-            
+
             <TextField
               ref={inputRef}
               fullWidth
@@ -506,11 +492,11 @@ export function MUIChatInterface({
                 },
               }}
             />
-            
+
             <IconButton color="primary" sx={{ mb: 0.5 }}>
               <EmojiEmotions />
             </IconButton>
-            
+
             <IconButton
               type="submit"
               disabled={!messageInput.trim()}
@@ -527,7 +513,7 @@ export function MUIChatInterface({
               <Send />
             </IconButton>
           </Stack>
-          
+
           <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
             <Typography variant="caption" color="text.secondary">
               🔒 KIM-verschlüsselt

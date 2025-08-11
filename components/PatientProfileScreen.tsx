@@ -23,7 +23,6 @@ import {
   Description,
   AccessTime,
   Assignment,
-  PersonAdd,
 } from '@mui/icons-material';
 import { Patient } from '../types';
 
@@ -99,7 +98,7 @@ export function PatientProfileScreen({ patient, onBackToInbox, isMobileView }: P
                   >
                     {getInitials(patient.name)}
                   </Avatar>
-                  
+
                   <Box sx={{ flex: 1 }}>
                     <Stack direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mb: 2 }}>
                       <Box>
@@ -121,7 +120,7 @@ export function PatientProfileScreen({ patient, onBackToInbox, isMobileView }: P
                           </Stack>
                         </Stack>
                       </Box>
-                      
+
                       <Chip
                         icon={<Security />}
                         label={getConsentStatusLabel(patient.consentStatus)}
@@ -129,7 +128,7 @@ export function PatientProfileScreen({ patient, onBackToInbox, isMobileView }: P
                         variant="outlined"
                       />
                     </Stack>
-                    
+
                     {patient.kimAddress && (
                       <Card variant="outlined" sx={{ bgcolor: 'primary.light', color: 'primary.contrastText', p: 2 }}>
                         <Typography variant="body2">
@@ -151,7 +150,7 @@ export function PatientProfileScreen({ patient, onBackToInbox, isMobileView }: P
                     Behandlungsverlauf
                   </Typography>
                 </Stack>
-                
+
                 <List>
                   {patient.timeline.map((event, index) => (
                     <React.Fragment key={event.id}>
@@ -168,7 +167,7 @@ export function PatientProfileScreen({ patient, onBackToInbox, isMobileView }: P
                             <Description sx={{ fontSize: 16 }} />
                           </Avatar>
                         </ListItemIcon>
-                        
+
                         <ListItemText
                           primary={
                             <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
@@ -188,7 +187,7 @@ export function PatientProfileScreen({ patient, onBackToInbox, isMobileView }: P
                                   </Typography>
                                 </Stack>
                               </Box>
-                              
+
                               <Stack direction="row" spacing={1}>
                                 <Chip
                                   label={event.type}

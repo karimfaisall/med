@@ -18,14 +18,11 @@ import {
   FormControl,
   InputLabel,
   InputAdornment,
-  Card,
-  CardContent,
   Divider,
 } from '@mui/material';
 import {
   Search,
   Add,
-  MoreVert,
   PushPin,
   Warning,
 } from '@mui/icons-material';
@@ -92,7 +89,7 @@ const mockConversations: Conversation[] = [
       senderId: 'dr-mueller',
       senderName: 'Dr. Müller',
       content: 'Wer kann heute die Visite in Zimmer 205 übernehmen?',
-      timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000),
+      timestamp: new Date(Date.now() - 60 * 60 * 1000),
       isRead: false
     },
     unreadCount: 3,
@@ -111,18 +108,18 @@ export function InboxScreen({ onSelectConversation, onCompose, onNavigateToScree
   const filteredConversations = conversations.filter(conv => {
     const matchesSearch = conv.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          conv.lastMessage.content.toLowerCase().includes(searchQuery.toLowerCase());
-    
-    const matchesFilter = filterStatus === 'all' || 
+
+    const matchesFilter = filterStatus === 'all' ||
                          (filterStatus === 'unread' && conv.unreadCount > 0) ||
                          (filterStatus === 'urgent' && conv.isUrgent);
-                         
+
     return matchesSearch && matchesFilter;
   });
 
   const getTimeString = (date: Date) => {
     const now = new Date();
     const diffInHours = (now.getTime() - date.getTime()) / (1000 * 60 * 60);
-    
+
     if (diffInHours < 24) {
       return date.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
     } else {
@@ -173,7 +170,7 @@ export function InboxScreen({ onSelectConversation, onCompose, onNavigateToScree
               ),
             }}
           />
-          
+
           <FormControl size="small" sx={{ minWidth: 120 }}>
             <InputLabel>Filter</InputLabel>
             <Select
@@ -218,7 +215,7 @@ export function InboxScreen({ onSelectConversation, onCompose, onNavigateToScree
                         {getInitials(conversation.name)}
                       </Avatar>
                     </ListItemAvatar>
-                    
+
                     <ListItemText
                       sx={{ ml: 1 }}
                       primary={

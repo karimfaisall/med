@@ -11,7 +11,6 @@ import {
   ChevronRight,
   Plus,
   Hash,
-  MessageCircle,
   Search,
   Menu,
   X
@@ -34,7 +33,7 @@ interface LeftSidebarProps {
   currentUser: User;
 }
 
-// Mock data for demonstration
+
 const mockNotificationCounts = {
   inbox: 5,
   alerts: 2,

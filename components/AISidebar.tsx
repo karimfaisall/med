@@ -16,7 +16,7 @@ import {
   FileCheck,
   ArrowLeft
 } from 'lucide-react';
-import { Conversation, Message } from '../src/App';
+import { Conversation, Message } from '../types';
 
 interface AISidebarProps {
   conversation: Conversation;
